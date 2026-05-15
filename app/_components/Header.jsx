@@ -17,9 +17,7 @@ const Header = () => {
           {/* Brand Section */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
-              <div className="relative text-[26px] font-black text-[#004b87] tracking-tighter">
-                HOFFMEYER
-              </div>
+              <img src="/logo.png" alt="Hoffmeyer" className="h-[38px] md:h-[50px] object-contain" />
               <span className="hidden md:block text-[#333] italic font-bold text-[15px] ml-2 tracking-tight">
                 We keep your products moving{'\uFF01'}
               </span>
