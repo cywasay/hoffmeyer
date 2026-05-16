@@ -19,7 +19,7 @@ const FeaturedBrands = () => {
   return (
     <section className="bg-[#f2f2f2] w-full py-6 md:py-20 px-13 md:px-0">
       <div className="max-w-7xl mx-auto w-full px-4">
-        <h2 className="text-[24px] md:text-[32px] font-extrabold text-[#004b87] text-center mb-8 md:mb-16">
+        <h2 className="text-[24px] md:text-[32px] font-bold text-[#004b87] text-center mb-8 md:mb-16">
           Brands You Know, Products You Trust
         </h2>
         

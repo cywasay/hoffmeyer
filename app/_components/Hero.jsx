@@ -2,23 +2,34 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="relative w-full bg-[#0062B6] py-8 md:py-32 px-6 md:px-8 flex flex-col items-center md:items-start text-center md:text-left overflow-hidden text-white">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-zinc-200 rounded-full blur-3xl -mr-32 -mt-32 opacity-20" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-zinc-200 rounded-full blur-3xl -ml-32 -mb-32 opacity-20" />
+    <section className="relative w-full h-[350px] md:h-[400px] flex items-center overflow-hidden">
+      {/* Background Image - Responsive */}
+      <picture className="absolute inset-0 z-0">
+        <source media="(min-width: 768px)" srcSet="/desktop-banner.jpg" />
+        <img 
+          src="/mobile-banner.jpg" 
+          alt="Hoffmeyer Banner" 
+          className="w-full h-full object-cover object-bottom md:object-center"
+        />
+      </picture>
 
-      <div className="relative z-10 flex flex-col items-center md:items-start gap-4 max-w-7xl mx-auto w-full">
-        <h1 className="text-[36px] md:text-[56px] font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight">
-          Complete Conveyor<br />Belting Solutions
-        </h1>
+      {/* Main Content Container */}
+      <div className="relative z-20 max-w-7xl mx-auto w-full px-6 md:px-20 flex flex-col items-center md:items-start justify-center py-12 md:py-0">
         
-        <p className="text-[16px] md:text-[18px] font-bold md:mt-2">
-          Belts, Bearings, Rollers, Motors, Seals & more
-        </p>
+        {/* Text Section */}
+        <div className="flex flex-col gap-[10px] items-center md:items-start text-center md:text-left text-white max-w-2xl">
+          <h1 className="text-[35px] md:text-[56px] font-bold mb-1 md:mb-5 drop-shadow-md leading-[1.2]">
+            Complete Conveyor<br className="hidden md:block" /> Belting Solutions
+          </h1>
+          
+          <p className="text-[14px] md:text-[18px] font-bold mb-8 md:mb-10 opacity-100 drop-shadow-md">
+            Belts, Bearings, Rollers, Motors, Seals & more
+          </p>
 
-        <button className="mt-24 md:mt-6 bg-white text-[#16568D] px-4 md:px-8 py-4 md:py-3 rounded-lg md:rounded-md font-bold text-[20px] md:text-[16px] shadow-sm hover:shadow-md active:scale-[0.98] transition-all">
-          Shop Products
-        </button>
+          <button className="bg-white text-[#0062B6] px-8 py-3 md:py-2 md:px-4 mt-16 md:mt-0 rounded-lg md:rounded-md font-semibold text-[20px] md:text-[14px] shadow-sm hover:shadow-md hover:bg-gray-50 active:scale-[0.98] transition-all">
+            Shop Products
+          </button>
+        </div>
       </div>
     </section>
   );

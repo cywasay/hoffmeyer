@@ -27,21 +27,21 @@ const Header = () => {
       <header className="w-full flex flex-col font-sans select-none relative z-40">
         {/* Top Banner */}
         <div className="bg-[#333333] w-full">
-          <div className="max-w-7xl mx-auto text-white py-1.5 text-center text-[12px]">
+          <div className="max-w-7xl mx-auto text-white py-1 text-center text-[12px]">
             Have a Project? <span className="font-semibold underline">Request a Quote!</span>
           </div>
         </div>
 
         {/* Middle Bar */}
         <div className="bg-white w-full border-b border-gray-200 md:border-none">
-          <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-6">
+          <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2.5 md:py-2">
             
             {/* Brand Section */}
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-3">
-                <img src="/logo.png" alt="Hoffmeyer" className="h-[38px] md:h-[50px] object-contain" />
-                <span className="hidden md:block text-[#333] italic font-bold text-[15px] ml-2 tracking-tight">
-                  We keep your products moving{'\uFF01'}
+                <img src="/logo.png" alt="Hoffmeyer" className="h-[30px] md:h-[40px] object-contain" />
+                <span className="hidden md:block text-[#333] italic font-semibold text-[12px] ml-8 tracking-tight">
+                  We keep your products moving!
                 </span>
               </div>
             </div>
@@ -61,14 +61,14 @@ const Header = () => {
 
             {/* Desktop Links & Phone */}
             <div className="hidden md:flex items-center gap-10">
-              <nav className="flex items-center gap-8 text-[15px] font-bold text-[#333]">
+              <nav className="flex items-center gap-8 text-[13px] font-semibold text-[#333]">
                 <a href="#" className="hover:text-[#004b87] transition-colors">Locations</a>
                 <a href="#" className="hover:text-[#004b87] transition-colors">Resources</a>
                 <a href="#" className="hover:text-[#004b87] transition-colors">About Us</a>
-                <a href="#" className="hover:text-[#004b87] transition-colors">Sign In {'\uFF5C'} Register</a>
+                <a href="#" className="hover:text-[#004b87] transition-colors">Sign In | Register</a>
               </nav>
-              <div className="text-[32px] font-extrabold text-[#16568D] tracking-tight whitespace-nowrap">
-                {'\uFF08'}800{'\uFF09'} 350-2358
+              <div className="text-[28px] font-extrabold text-[#16568D] tracking-tight whitespace-nowrap">
+                (800) 350-2358
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Blue Bar */}
-        <div className="hidden md:block w-full bg-[#16568D] py-3.5">
+        <div className="hidden md:block w-full bg-[#16568D] py-1.5">
           <div className="max-w-7xl mx-auto flex items-center justify-between px-4">
             <div className="flex items-center gap-8 text-white font-bold text-[16px]">
               <button className="flex items-center gap-1.5 hover:text-gray-200 transition-colors">
@@ -107,7 +107,7 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="Search by item or keyword..."
-                className="w-full bg-white rounded-lg py-2.5 px-4 text-[15px] font-medium text-[#333] placeholder:text-[#ccc] outline-none"
+                className="w-full bg-white rounded-lg py-2 px-4 text-[15px] font-medium text-[#333] placeholder:text-[#ccc] outline-none"
               />
               <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[#ccc]">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
@@ -186,7 +186,7 @@ const Header = () => {
             </button>
           </div>
           <div className="mt-6 text-center text-[18px] font-extrabold text-[#16568D] tracking-tight">
-            {'\uFF08'}800{'\uFF09'} 350-2358
+            (800) 350-2358
           </div>
         </div>
       </div>

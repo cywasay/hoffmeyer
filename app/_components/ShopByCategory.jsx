@@ -19,7 +19,7 @@ const ShopByCategory = () => {
   return (
     <section className="bg-white py-10 md:py-20 px-10 md:px-0">
       <div className="max-w-7xl mx-auto w-full px-4">
-        <h2 className="text-[24px] md:text-[32px] font-extrabold tracking-tight text-[#004b87] text-center mb-8 md:mb-12">
+        <h2 className="text-[24px] md:text-[32px] font-bold text-[#004b87] text-center mb-8 md:mb-12">
           Shop by Category
         </h2>
         

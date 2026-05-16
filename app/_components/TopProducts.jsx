@@ -2,18 +2,18 @@ import React from "react";
 
 const products = [
   { name: "Heavy-Duty Belt", image: "https://placehold.co/400x400/f8f8f8/004b87?text=Belt" },
-  { name: "Dodge® Pillow Block Bearings", image: "https://placehold.co/400x400/f8f8f8/004b87?text=Bearings" },
-  { name: "WD40® Silicone Lubricant", image: "https://placehold.co/400x400/f8f8f8/004b87?text=WD40" },
-  { name: "Huskey™ Lube-O-Seal", image: "https://placehold.co/400x400/f8f8f8/004b87?text=Lube" },
-  { name: "Oil Seals", image: "https://placehold.co/400x400/f8f8f8/004b87?text=Oil+Seals" },
-  { name: "Fuel Transfer Hose", image: "https://placehold.co/400x400/f8f8f8/004b87?text=Hose" },
+  { name: "Dodge® Pillow Block Bearings", image: "/bearing.png" },
+  { name: "WD40® Silicone Lubricant", image: "/wd40.png" },
+  { name: "Huskey™ Lube-O-Seal", image: "/huskey.png" },
+  { name: "Oil Seals", image: "/oil-seal.png" },
+  { name: "Fuel Transfer Hose", image: "/fuel-hose.png" },
 ];
 
 const TopProducts = () => {
   return (
     <section className="bg-white py-7 md:py-16 px-14 md:px-0">
       <div className="max-w-7xl mx-auto w-full px-4">
-        <h2 className="text-[24px] md:text-[32px] font-extrabold tracking-tight text-[#004b87] text-center mb-6 md:mb-10">
+        <h2 className="text-[24px] md:text-[32px] font-bold text-[#004b87] text-center mb-6 md:mb-10">
           Our Top Selling Products
         </h2>
         
