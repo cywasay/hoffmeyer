@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const products = [
   { name: "Heavy-Duty Belt", image: "https://placehold.co/400x400/f8f8f8/004b87?text=Belt" },
@@ -8,6 +9,17 @@ const products = [
   { name: "Oil Seals", image: "/oil-seal.png" },
   { name: "Fuel Transfer Hose", image: "/fuel-hose.png" },
 ];
+
+const getSlug = (name) => {
+  return name
+    .toLowerCase()
+    .replace(/\n/g, " ")
+    .replace(/®/g, "")
+    .replace(/™/g, "")
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+};
 
 const TopProducts = () => {
   return (
@@ -25,14 +37,18 @@ const TopProducts = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">
             {products.map((product, index) => (
-              <div key={index} className="aspect-square border border-gray-400 md:border-gray-200 md:rounded-xl rounded-2xl p-4 md:p-3 flex flex-col items-center justify-between hover:shadow-md transition-shadow overflow-hidden">
-                <div className="flex-1 w-full flex items-center justify-center min-h-0">
-                  <img src={product.image} alt={product.name} className="max-h-full max-w-full object-contain" />
+              <Link 
+                href={`/product/${getSlug(product.name)}`}
+                key={index} 
+                className="group aspect-square border border-gray-200 md:rounded-xl rounded-2xl p-4 md:p-3 flex flex-col items-center justify-between hover:shadow-lg hover:border-[#16568D] transition-all duration-300 overflow-hidden cursor-pointer bg-white"
+              >
+                <div className="flex-1 w-full flex items-center justify-center min-h-0 p-2">
+                  <img src={product.image} alt={product.name} className="max-h-[90%] max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105" />
                 </div>
-                <p className="text-[15px] md:text-[13px] font-semibold md:font-bold text-center text-[#333] leading-tight h-[40px] md:h-[36px] flex items-center justify-center">
+                <p className="text-[14px] md:text-[13px] font-semibold md:font-bold text-center text-gray-800 group-hover:text-[#16568D] transition-colors duration-200 leading-tight h-[40px] md:h-[36px] flex items-center justify-center">
                   {product.name}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
 
