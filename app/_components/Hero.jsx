@@ -18,17 +18,17 @@ const Hero = () => {
         
         {/* Text Section */}
         <div className="flex flex-col gap-[10px] items-center md:items-start text-center md:text-left text-white max-w-2xl">
-          <h1 className="text-[35px] md:text-[56px] font-bold mb-1 md:mb-5 drop-shadow-md leading-[1.2]">
+          <h1 className="text-[35px] md:text-[56px] font-bold mb-1 md:mb-5 leading-[1.3]">
             Complete Conveyor<br className="hidden md:block" /> Belting Solutions
           </h1>
           
-          <p className="text-[14px] md:text-[18px] font-bold mb-8 md:mb-10 opacity-100 drop-shadow-md">
+          <p className="text-[14px] md:text-[18px] font-bold mb-8 md:mb-3 opacity-100 drop-shadow-md">
             Belts, Bearings, Rollers, Motors, Seals & more
           </p>
 
-          <button className="bg-white text-[#0062B6] px-8 py-3 md:py-2 md:px-4 mt-16 md:mt-0 rounded-lg md:rounded-md font-semibold text-[20px] md:text-[14px] shadow-sm hover:shadow-md hover:bg-gray-50 active:scale-[0.98] transition-all">
+          <a href="#categories" className="bg-white text-[#0062B6] px-8 py-3 md:py-2 md:px-6 mt-16 md:mt-0 rounded-lg md:rounded-md font-semibold text-[20px] md:text-[14px] shadow-sm hover:shadow-md hover:bg-gray-50 active:scale-[0.98] transition-all inline-block text-center">
             Shop Products
-          </button>
+          </a>
         </div>
       </div>
     </section>

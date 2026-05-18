@@ -1,5 +1,18 @@
 "use client";
+import { WDXL_Lubrifont_JP_N } from "next/font/google";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+
+const getSlug = (name) => {
+  return name
+    .toLowerCase()
+    .replace(/\n/g, " ")
+    .replace(/®/g, "")
+    .replace(/™/g, "")
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+};
 
 const categories = [
   "Conveyor Belts", "Industrial Hose", "Hydraulic Hose", "Hose Fittings & Adapters",
@@ -38,12 +51,12 @@ const Header = () => {
             
             {/* Brand Section */}
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-3">
+              <Link href="/" className="flex items-center gap-3 cursor-pointer">
                 <img src="/logo.png" alt="Hoffmeyer" className="h-[30px] md:h-[40px] object-contain" />
                 <span className="hidden md:block text-[#333] italic font-semibold text-[12px] ml-8 tracking-tight">
                   We keep your products moving!
                 </span>
-              </div>
+              </Link>
             </div>
 
             {/* Mobile Icons */}
@@ -98,9 +111,6 @@ const Header = () => {
               <button className="flex items-center gap-1.5 hover:text-gray-200 transition-colors">
                 Products <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
-              <button className="flex items-center gap-1.5 hover:text-gray-200 transition-colors">
-                Brands <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </button>
             </div>
             
             <div className="flex-1 max-w-4xl mx-8 relative">
@@ -139,7 +149,9 @@ const Header = () => {
         }`}
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
-          <img src="/logo.png" alt="Hoffmeyer" className="h-[30px] object-contain" />
+          <Link href="/" onClick={() => setIsMenuOpen(false)} className="cursor-pointer">
+            <img src="/logo.png" alt="Hoffmeyer" className="h-[30px] object-contain" />
+          </Link>
           <button 
             className="text-gray-500 hover:text-gray-800 p-2"
             onClick={() => setIsMenuOpen(false)}
@@ -163,7 +175,14 @@ const Header = () => {
               {/* Category Dropdown */}
               <div className={`flex flex-col gap-3 pl-4 overflow-hidden transition-all duration-300 ${categoriesOpen ? "max-h-[500px] mt-2 mb-2" : "max-h-0"}`}>
                 {categories.map((cat, idx) => (
-                  <a key={idx} href="#" className="text-[15px] font-medium text-gray-600 hover:text-[#004b87]">{cat.replace('\n', ' ')}</a>
+                  <Link 
+                    key={idx} 
+                    href={`/category/${getSlug(cat)}`} 
+                    className="text-[15px] font-medium text-gray-600 hover:text-[#004b87]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {cat.replace('\n', ' ')}
+                  </Link>
                 ))}
               </div>
             </div>
