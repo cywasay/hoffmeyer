@@ -1,9 +1,40 @@
 import Header from "../../_components/Header";
 import Newsletter from "../../_components/Newsletter";
 import React from "react";
+import Link from "next/link";
 
-const ProductDetail = ({ params }) => {
-  const productName = params.slug?.replace(/-/g, " ") || "Premium Industrial Product";
+const ProductDetail = async ({ params }) => {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
+  const productName = slug?.replace(/-/g, " ") || "Premium Industrial Product";
+
+  const getProductImage = (slug) => {
+    if (!slug) return "https://placehold.co/600x600/f8f8f8/004b87?text=Product";
+    
+    const lower = slug.toLowerCase();
+    if (lower.includes("bearing")) return "/bearing.png";
+    if (lower.includes("wd40") || lower.includes("silicone")) return "/wd40.png";
+    if (lower.includes("huskey") || lower.includes("lube")) return "/huskey.png";
+    if (lower.includes("oil-seal") || lower.includes("seal")) return "/oil-seal.png";
+    if (lower.includes("fuel") || lower.includes("hose")) {
+      if (lower.includes("industrial")) return "/industrial-hose.png";
+      if (lower.includes("hydraulic")) return "/hydraulic-hose-v2.png";
+      return "/fuel-hose.png";
+    }
+    if (lower.includes("belt")) {
+      if (lower.includes("components")) return "/conveyor-components.png";
+      return "/conveyor-belt.png";
+    }
+    if (lower.includes("fitting") || lower.includes("adapter")) return "/hose-fittings.png";
+    if (lower.includes("valve")) return "/pipe-valves.png";
+    if (lower.includes("packing") || lower.includes("sealing")) return "/packing-sealing-v2.png";
+    if (lower.includes("safety") || lower.includes("gear")) return "/safety-gear-v2.png";
+    if (lower.includes("motor")) return "/motors-control.png";
+    
+    return "https://placehold.co/600x600/f8f8f8/004b87?text=Product";
+  };
+
+  const mainImage = getProductImage(slug);
 
   return (
     <main className="flex min-h-screen flex-col bg-white">
@@ -12,9 +43,9 @@ const ProductDetail = ({ params }) => {
       {/* Breadcrumbs */}
       <div className="max-w-7xl mx-auto w-full px-6 md:px-8 pt-8">
         <nav className="flex text-[12px] text-gray-400 font-bold uppercase tracking-widest">
-          <a href="/" className="hover:text-[#004b87]">Home</a>
+          <Link href="/" className="hover:text-[#004b87]">Home</Link>
           <span className="mx-2">/</span>
-          <a href="#" className="hover:text-[#004b87]">Categories</a>
+          <Link href="/#categories" className="hover:text-[#004b87]">Categories</Link>
           <span className="mx-2">/</span>
           <span className="text-[#004b87] truncate">{productName}</span>
         </nav>
@@ -28,7 +59,7 @@ const ProductDetail = ({ params }) => {
           <div className="w-full md:w-1/2 flex flex-col gap-4">
             <div className="aspect-square bg-[#f8f8f8] border border-gray-100 rounded-3xl overflow-hidden flex items-center justify-center p-8">
               <img 
-                src="https://placehold.co/800x800/f8f8f8/004b87?text=Product+Hero" 
+                src={mainImage} 
                 alt={productName} 
                 className="max-h-full max-w-full object-contain"
               />
@@ -36,7 +67,7 @@ const ProductDetail = ({ params }) => {
             <div className="grid grid-cols-4 gap-4">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="aspect-square bg-[#f8f8f8] border border-gray-100 rounded-xl cursor-pointer hover:border-[#004b87] transition-colors p-2">
-                  <img src={`https://placehold.co/200x200/f8f8f8/004b87?text=V${i}`} alt="Thumb" className="w-full h-full object-contain" />
+                  <img src={mainImage} alt="Thumb" className="w-full h-full object-contain" />
                 </div>
               ))}
             </div>
@@ -62,7 +93,7 @@ const ProductDetail = ({ params }) => {
             <div className="flex flex-col gap-6 mb-10">
               <div>
                 <h4 className="font-bold text-[14px] uppercase tracking-wide text-gray-400 mb-3">Select Size</h4>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                   {['12"', '24"', '36"', '48"'].map(size => (
                     <button key={size} className="border-2 border-gray-100 px-6 py-2 rounded-lg font-bold hover:border-[#004b87] transition-colors">{size}</button>
                   ))}
@@ -83,7 +114,7 @@ const ProductDetail = ({ params }) => {
             </div>
 
             {/* Trust Badges */}
-            <div className="mt-12 flex items-center gap-8 border-t pt-8">
+            <div className="mt-12 flex items-center gap-6 sm:gap-8 border-t pt-8">
               <div className="flex flex-col items-center gap-2">
                 <div className="w-10 h-10 bg-[#f2f2f2] rounded-full flex items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#004b87" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
